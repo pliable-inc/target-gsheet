@@ -23,6 +23,9 @@ from oauth2client import client
 from oauth2client import tools
 from oauth2client.file import Storage
 
+if sys.version_info.major == 3 and sys.version_info.minor >= 10:
+    setattr(collections, "MutableMapping", collections.abc.MutableMapping)
+
 try:
     parser = argparse.ArgumentParser(parents=[tools.argparser])
     parser.add_argument('-c', '--config', help='Config file', required=True)
